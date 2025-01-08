@@ -9,8 +9,8 @@ _solc="true"
 _hardhat="true"
 _pkg=libevm
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.1.1.1"
-_commit="30b6d7256c5426fcf632b6494075e5651f9c8eb8"
+pkgver="0.0.0.0.0.0.0.0.0.1.1.1.1.1.1"
+_commit="23df8aaa8c852d541ca81b3c09e1b849953db3b4"
 pkgrel=1
 _pkgdesc=(
   "Bash library containing useful functions"
@@ -61,7 +61,7 @@ elif [[ "${_git}" == false ]]; then
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _src="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum='ab1f6206c2aa4572664213cde0cf8cba8c5ee163a7d6ca9a211f089bf03854df'
+    _sum='4c3cb149e3a03fd5866b0e38cf3a74cffccc7c88b50fee5a46b97607fd2ab776'
   fi
 fi
 source=(
