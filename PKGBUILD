@@ -9,8 +9,8 @@ _solc="true"
 _hardhat="true"
 _pkg=libevm
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.1.1.1.1.1"
-_commit="5d45073f0610666c6e64efa5d9ef7366f476247c"
+pkgver="0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
+_commit="bbc30a261cbc66ca0469e2de56c36f050c140aca"
 pkgrel=1
 _pkgdesc=(
   "Bash library containing useful functions"
@@ -34,11 +34,6 @@ depends=(
   "libcrash-bash"
 )
 optdepends=()
-_os="$( \
-  uname \
-    -o)"
-optdepends+=(
-)
 makedepends=(
   'make'
 )
@@ -64,7 +59,7 @@ elif [[ "${_git}" == false ]]; then
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _src="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum='874ad2a24d51add35d85d0c23248b6d2e1fa3c5d5c2c698ec4acb685602251df'
+    _sum='5c9a8d65f4ca838301a17e1292da1f3a20145b4869cd5a08961e381396343fb7'
   fi
 fi
 source=(
