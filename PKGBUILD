@@ -9,8 +9,8 @@ _solc="true"
 _hardhat="true"
 _pkg=libevm
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.1.1.1"
-_commit="30b6d7256c5426fcf632b6494075e5651f9c8eb8"
+pkgver="0.0.0.0.0.0.0.0.0.1.1.1.1.1"
+_commit="5d45073f0610666c6e64efa5d9ef7366f476247c"
 pkgrel=1
 _pkgdesc=(
   "Bash library containing useful functions"
@@ -28,6 +28,9 @@ license=(
   'AGPL3'
 )
 depends=(
+  "evm-chains-explorers"
+  "evm-chains-info"
+  "evm-contracts-tools"
   "libcrash-bash"
 )
 optdepends=()
@@ -61,7 +64,7 @@ elif [[ "${_git}" == false ]]; then
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _src="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum='ab1f6206c2aa4572664213cde0cf8cba8c5ee163a7d6ca9a211f089bf03854df'
+    _sum='874ad2a24d51add35d85d0c23248b6d2e1fa3c5d5c2c698ec4acb685602251df'
   fi
 fi
 source=(
