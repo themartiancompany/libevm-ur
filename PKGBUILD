@@ -94,6 +94,7 @@ if [[ "${_evmfs}" == "true" ]]; then
     "evmfs"
   )
   _src="${_evmfs_archive_src}"
+  _sum="${_archive_sum}"
   source+=(
     "${_archive_sig_src}"
   )
