@@ -38,12 +38,12 @@ if [[ ! -v "_evmfs" ]]; then
 fi
 _offline="false"
 _git="false"
-_solc="true"
-_hardhat="true"
+_node="nodejs"
+_py="python"
 _pkg=libevm
 pkgname="${_pkg}"
 pkgver="0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1.1"
-_commit="b7acedf8c1f789a0f829be0f6b678b2a5fb04428"
+_commit="280c1bc6d765abd51be949a360c559356d67f13b"
 pkgrel=1
 _pkgdesc=(
   "Bash library containing useful functions"
@@ -65,13 +65,36 @@ depends=(
   "evm-chains-info"
   "evm-contracts-tools"
   "libcrash-bash"
+  "libcrash-js"
 )
-optdepends=()
+_node_run_optdepends=(
+  "node-run:"
+    "to correctly load the library"
+    "as specified in the documentation."
+)
+_evm_make_optdepends=(
+  "evm-make:"
+    "to build programs written using"
+    "the library."
+)
+optdepends=(
+  "${_evm_make_optdepends[*]}"
+  "${_node_run_optdepends[*]}"
+)
 makedepends=(
   'make'
+  "${_py}-docutils"
 )
 checkdepends=(
   "shellcheck"
+)
+provides=(
+  "${_pkg}-js=${pkgver}"
+  "${_node}-${_pkg}=${pkgver}"
+)
+conflicts=(
+  "${_pkg}-js"
+  "${_node}-${_pkg}"
 )
 _url="${url}"
 _tag="${_commit}"
@@ -83,10 +106,10 @@ fi
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_sum='26f74a82a97637a938276e87c5e1be960eee4e9c711c2a2be9955f17e1f9a6ab'
+_archive_sum='4b68630402ef134f60012059698b9e27bdc79a9bdccc1942cd770eea39e13898'
 _evmfs_archive_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sum}"
 _evmfs_archive_src="${_tarname}.zip::${_evmfs_archive_uri}"
-_archive_sig_sum="bc15f546914a32dbb715bdb6841cc02ceea237621ed34315e094563e16fc1359"
+_archive_sig_sum="b48e8d51c9c214396b07a2e91443bc8ca8289718366f9900fae074ffaa4780ce"
 _archive_sig_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sig_sum}"
 _archive_sig_src="${_tarname}.zip.sig::${_archive_sig_uri}"
 if [[ "${_evmfs}" == "true" ]]; then
@@ -151,6 +174,10 @@ package() {
   make \
     "${_make_opts[@]}" \
     install
+  install \
+    -Dm644 \
+    "COPYING" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 # vim: ft=sh syn=sh et
