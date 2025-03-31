@@ -42,8 +42,8 @@ _node="nodejs"
 _py="python"
 _pkg=libevm
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.1.1.1"
-_commit="105f50e0c79e430d4cac1bc69adff80dddf591f3"
+pkgver="0.0.0.0.0.0.0.0.1.1.1.1"
+_commit="5643c45c6dff1d0f82732c33fd08f22a743cd46f"
 pkgrel=1
 _pkgdesc=(
   "Bash library containing useful functions"
